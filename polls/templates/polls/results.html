@@ -1,0 +1,19 @@
+
+<div  style="background-color:wheat; width:100%;height:100%;">
+<h1 style="text-align: center; color: #333; font-size: 24px; margin-bottom: 20px;">{{ question.question_text }}</h1>
+
+<ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+    {% for choice in question.choice_set.all %}
+        <li style="margin-bottom: 10px; font-size: 24px; ">
+           {{ choice.choice_text }} --  <h2 style="color:green;">{{ choice.votes }}  vote{{ choice.votes|pluralize }}</h2>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}" style="display: block; text-align: center; text-decoration: none; color: #007BFF; font-weight: bold; padding: 10px; background-color: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Vote again?</a>
+<button style="width:150px;height:50px;font-size:20px;  margin-top:10px; background-color:blue;color:white; font-weight:bold;"onclick="window.location.href='{% url 'polls:index' %}'">Back</button>
+
+<div style="height:100px; position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; font-size: 24px; font-weight: bold; background-color: blue; color: white;">
+    <p style="margin-bottom:210px;">&copy; 2024 Sintayehu-dev. All rights reserved.</p>
+</div>
+</div>

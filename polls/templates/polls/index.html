@@ -1,0 +1,19 @@
+<div  style="background-color:wheat;">
+    <h3  style="text-align:center; color:blue;">please give vote if you agree on the answer</h3>
+{% if latest_question_list %}
+    <ul style="list-style: none; padding: 0;">
+        {% for question in latest_question_list %}
+            <li style="margin-bottom: 10px;">
+                <a href="{% url 'polls:detail' question.id %}" style="text-decoration: none; color: #333; display: block; padding: 10px; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    {{ question.question_text }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p style="color: #888; font-style: italic;">No polls are available.</p>
+{% endif %}
+<div style="height:100px; position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; font-size: 24px; font-weight: bold; background-color: blue; color: white;">
+    <p style="margin-bottom:210px;">&copy; 2024 Sintayehu-dev. All rights reserved.</p>
+</div>
+</div>
